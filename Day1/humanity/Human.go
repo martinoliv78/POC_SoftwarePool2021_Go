@@ -3,6 +3,7 @@ package humanity
 import (
 	"SofwareGoDay1/data"
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"strconv"
 )
@@ -11,6 +12,7 @@ type Human struct {
 	Name    string
 	Age     int
 	Country string
+	Ready   bool
 }
 
 func NewHumanFromCSV(csv []string) (*Human, error) {
@@ -52,4 +54,8 @@ func NewHumansFromJsonFile(path string) ([]*Human, error) {
 	}
 	json.Unmarshal(_data, &array)
 	return array, nil
+}
+
+func (h *Human) String() string {
+	return fmt.Sprintf("POUIC")
 }
